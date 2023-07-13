@@ -1,0 +1,168 @@
+:root {
+    --back-col: black;
+    --text-col: #E6E6E9;
+    --hover-col: #888888;
+    --std-font-size: 16px;
+    --centered-title-size: 4rem;
+}
+
+* {
+    margin: 0;
+}
+
+@font-face {
+    font-family: logo-font;
+    src: url("./../fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: noto-serif;
+    src: url("./../fonts/NotoSerif-Regular.ttf");
+}
+
+html {
+    font-size: var(--std-font-size);
+}
+
+body {
+    background-color: var(--back-col);
+    color: var(--text-col);
+    font-family: noto-serif;
+}
+
+.logofont {
+    font-family: logo-font;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hover-eff {
+    color: inherit;
+    transition: color 0.15s ease-in;
+}
+
+.hover-eff:hover {
+    color: var(--hover-col);
+}
+
+.container {
+    height: 100vh;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+    scrollbar-width: none;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+    position: relative;
+}
+
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    width: 100%;
+}
+
+.s1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centertitle {
+    font-size: var(--centered-title-size);
+}
+
+.s2 {
+    display: grid;
+    grid-template-rows: 4rem 1fr;
+    place-items: center;
+    z-index: 1;
+    background-color: var(--back-col);
+}
+
+.nav-container>h2 {
+    font-size: 2rem;
+}
+
+.s2>img {
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+    grid-row: 2/3;
+}
+
+.s2>nav {
+    grid-row: 1/2;
+}
+
+.nav-container {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 2rem;
+    justify-content: space-between;
+    width: calc(100vw - 3rem);
+    margin-top: 1.5rem;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:'FILL' 0,'wght' 200,'GRAD' 0,'opsz' 48;
+}
+
+.nav-container>ul {
+    list-style: none;
+    width: 15rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.centeror {
+    grid-row: 2/3;
+    z-index: 1;
+}
+
+.s3, .s4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    background-color: var(--back-col);
+}
+
+.s3>img {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.s4>img {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.s5 {
+    background-color: var(--back-col);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title th:utext="${title}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="section s1">
+                <h1 class="logofont centertitle">VELVET TIME.</h1>
+            </div>
+            <div class="section s2">
+                <img th:src="@{/img/sect2.jpg}" alt="">
+                <nav>
+                    <div class="nav-container">
+                        <a href="" class="hover-eff"><span class="material-symbols-outlined">search</span><span class="stxt">Search</span></a>
+                        <h1 class="logofont hover-eff"><a href="">VELVET TIME.</a></h1>
+                        <ul>
+                            <li><a th:href="@{|/login|}" class="hover-eff">Login</a></li>
+                            <li><a th:href="@{|/register|}" class="hover-eff">Register</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <a th:href="@{/products}" class="hover-eff centeror"><h1 class="logofont centertitle">View Products.</h1></a>
+            </div>
+            <div class="section s3">
+                <img th:src="@{/img/sect3.jpg}" alt="">
+                <h1 class="logofont centertitle">Men's Watches</h1>
+            </div>
+            <div class="section s4">
+                <img th:src="@{/img/sect4.jpg}" alt="">
+                <h1 class="logofont centertitle">Women's Watches</h1>
+            </div>
+            <div class="section s5">
+                <h1 class="logofont centertitle">Gurubilli</h1>
+            </div>
+        </div>
+    </body>
+</html>

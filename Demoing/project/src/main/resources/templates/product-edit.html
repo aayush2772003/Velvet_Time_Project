@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title th:text="${add} ? 'Create a Product' : 'Edit a Product'" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <h1 th:text="${add} ? 'Create a Product:' : 'Edit a Product:'" />
+        <a th:href="@{/products}">Back to Product List</a>
+        <br/><br/>
+        <form th:action="${add} ? @{/products/add} : @{/products/{productId}/edit(productId=${product.id})}"
+              th:object="${product}" method="POST">
+            <table border="0">
+                <tr th:if="${product.id}">
+                    <td>ID</td>
+                    <td>:</td>
+                    <td th:utext="${product.id}">...</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>Image 1 Link</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{image1}" /></td>
+                </tr>
+                <tr>
+                    <td>Image 2 Link</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{image2}" /></td>
+                </tr>
+                <tr>
+                    <td>Image 3 Link</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{image3}" /></td>
+                </tr>
+                <tr>
+                    <td>Image 4 Link</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{image4}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Price</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{price}" /></td>
+                </tr>
+                <tr>
+                    <td>Stock</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{stock}" size="50" /></td>
+                </tr>
+                <tr>
+                    <td>Reviews</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{reviews}" size="50" /></td>              
+                </tr>
+                <tr>
+                    <td>Categories</td>
+                    <td></td>
+                    <td><input type="text" th:field="*{categories}" size="50" /></td>              
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td>:</td>
+                    <td><input type="text" th:field="*{discount}" /></td>              
+                </tr>
+                <tr>
+                    <td>Tags</td>
+                    <td>:</td>
+                    <td><textarea th:field="*{tags}" rows="4" cols="50" /></td>
+                </tr>
+            </table>
+            <input type="submit" th:value="${add} ? 'Create' : 'Update'" />
+        </form>
+ 
+        <br/>
+        <!-- Check if errorMessage is not null and not empty -->       
+        <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />       
+    </body>
+</html>

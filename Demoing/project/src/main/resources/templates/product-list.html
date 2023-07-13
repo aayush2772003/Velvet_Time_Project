@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Product List</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <h1>Product List</h1>
+        <div>
+            <nobr>
+                <a sec:authorize="hasRole('Admin')" th:href="@{/products/add} ">Add Product</a> |
+                <a th:href="@{/}">Back to Index</a>
+            </nobr>
+        </div>
+        <br/><br/>
+        <div>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Image 1</th>
+                    <th>Image 2</th>
+                    <th>Image 3</th>
+                    <th>Image 4</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Reviews</th>
+                    <th>Categories</th>
+                    <th>Discount</th>
+                    <th>Tags</th>
+                </tr>
+                <tr th:each ="product : ${products}">
+                    <td><a th:href="@{/products/{productId}(productId=${product.id})}" th:utext="${product.id}">...</a></td>
+                    <td><a th:href="@{/products/{productId}(productId=${product.id})}" th:utext="${product.name}">...</a></td>
+                    <td><img th:src="${product.image1}" alt="Image1"></td>
+                    <td><img th:src="${product.image2}" alt="Image2"></td>
+                    <td><img th:src="${product.image3}" alt="Image3"></td>
+                    <td><img th:src="${product.image4}" alt="Image4"></td>
+                    <td th:utext="${product.price}">...</td>
+                    <td th:utext="${product.stock}">...</td>
+                    <td th:utext="${product.reviews}">...</td>
+                    <td th:utext="${product.categories}">...</td>
+                    <td th:utext="${product.discount}">...</td>
+                    <td th:utext="${product.tags}">...</td>
+                    <td><a th:href="@{/products/{productId}/edit(productId=${product.id})}">Edit</a></td>
+                </tr>
+            </table>
+        </div>
+        <br/><br/>
+        <div>
+            <nobr>
+                <span th:if="${hasPrev}"><a th:href="@{/products?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span> 
+                <span th:if="${hasNext}"><a th:href="@{/products?page={next}(next=${next})}">Next</a></span>
+            </nobr>
+        </div>
+    </body>
+</html>
